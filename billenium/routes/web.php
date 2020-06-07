@@ -20,7 +20,6 @@ Route::group(['middleware' => 'auth'], function()
     Route::get('/', 'TaskLogsController@index')->name('tasks');
     Route::post('/task/time/add', 'TaskLogsController@registerTime')->name('addTime');
     Route::get('/task/stats', 'TimerRegisterController@index')->name('stats');
-    Route::post('/task/stats', 'TimerRegisterController@addTask')->name('stats');
 });
 
 

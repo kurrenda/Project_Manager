@@ -36,19 +36,5 @@ class TimerRegisterController extends Controller
         return view('pages/dashboard/stats', ["userTask" => $stats , "userAdmin" => $statsA]);
     }
 
-    public function registerTime(Request $request)
-    {
-        if(Auth::Check())
-        {
-
-
-            return redirect()->route('tasks');
-
-        }else
-        {
-            return redirect()->to('/');
-        }
-    }
-
 
 }
