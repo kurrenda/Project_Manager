@@ -11,5 +11,5 @@ Komendy do postawienia projektu:
 
 - php artisan key:generate
 - php artisan migrate:refresh --seeder=RolesAndPermissionsSeeder
-
+- php artisan serve (uruchomienie projektu)
 
