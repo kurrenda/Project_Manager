@@ -20,7 +20,7 @@
                                 <th scope="col">Zadanie</th>
                                 <th scope="col">Godziny poświęcone</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Pracownik ID</th>
+                                <th scope="col">Pracownik</th>
                             </tr>
                             </thead>
                             <tbody class="text-center">

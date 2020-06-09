@@ -16,8 +16,8 @@ class TimerRegisterController extends Controller
     public function index() {
 
         $query = TaskLogs::where('user_id', Auth::id())->with('task')->groupBy('task_id')
-                ->selectRaw('sum(hours_worked) as sum, task_id')
-                ->pluck('sum','task_id');
+            ->selectRaw('sum(hours_worked) as sum, task_id')
+            ->pluck('sum','task_id');
 
         $stats = DB::table('task_logs')
             ->where('task_logs.user_id',Auth::id())
@@ -28,8 +28,9 @@ class TimerRegisterController extends Controller
 
         $statsA = DB::table('task_logs')
             ->join('tasks', 'task_logs.task_id', '=', 'tasks.id')
-            ->groupBy('task_id','tasks.name', 'tasks.status', 'tasks.user_id')
-            ->selectRaw('sum(hours_worked) as sum, tasks.name as name, tasks.status as status, tasks.user_id as user')
+            ->join('users','task_logs.user_id','=', 'users.id')
+            ->groupBy('task_id','tasks.name', 'tasks.status', 'users.name')
+            ->selectRaw('sum(hours_worked) as sum, tasks.name as name, tasks.status as status, users.name as user')
             ->get();
 
 
