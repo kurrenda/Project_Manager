@@ -4,8 +4,8 @@ Wymagania do poprawnego działania:
 
 - PHP7
 - Framework Laravel
-- Lokalna baza danych
 - Zmiana nazwy pliku w projekcie z ".envexample" na ".env"
+- Lokalna baza danych (konfiguracja dostępu do niej w pliku ".env")
 
 Komendy do postawienia projektu:
 
