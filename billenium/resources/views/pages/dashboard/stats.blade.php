@@ -29,7 +29,11 @@
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{$key->name}}</td>
                                 <td>{{$key->sum}}</td>
-                                <td>{{$key->status}}</td>
+                                @if($key->status == 1)
+                                    <td>Zakończony</td>
+                                @else
+                                    <td>W trakcie</td>
+                                @endif
                                 <td>{{$key->user}}</td>
                             </tr>
                             @endforeach
@@ -51,7 +55,11 @@
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{$key->name}}</td>
                                         <td>{{$key->sum}}</td>
-                                        <td>{{$key->status}}</td>
+                                        @if($key->status == 1)
+                                        <td>Zakończony</td>
+                                        @else
+                                        <td>W trakcie</td>
+                                        @endif
                                     </tr>
                                 @endforeach
                                 </tbody>
