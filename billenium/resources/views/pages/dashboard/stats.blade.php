@@ -79,6 +79,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        @role('Team Leader')
                         @if($p->status != "1")
                         <div class="card-footer">
                             <form class="form" method="POST" action="{{route('closeProject')}}">
@@ -88,6 +89,7 @@
                             </form>
                         </div>
                         @endif
+                        @endrole
                     </div>
                 @endforeach
                 @else

@@ -19,7 +19,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
         $admin = Role::create(['name' => 'Admin']);
         $team = Role::create(['name' => 'Team Leader']);
-        $user = Role::create(['name' => 'Pracownik']);
+        $userR = Role::create(['name' => 'Pracownik']);
 
         $user = Factory(App\User::class)->create([
             'name' => 'Adam Małysz',
@@ -33,6 +33,14 @@ class RolesAndPermissionsSeeder extends Seeder
             'email' => 'jacek@jacek.com',
             'password' => bcrypt('admin'),
         ]);
+
+        $user3 = Factory(App\User::class)->create([
+            'name' => 'Gosia Andrzejewicz',
+            'email' => 'gosia@gosia.com',
+            'password' => bcrypt('admin'),
+        ]);
+
+        $user3->assignRole($userR);
         $user2->assignRole($admin);
     }
 }
