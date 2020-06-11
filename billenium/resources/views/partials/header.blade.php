@@ -53,9 +53,6 @@
                             <a class="dropdown-item" href="{{ route('addTaskForm') }}">
                                 Dodaj zadanie
                             </a>
-                            <a class="dropdown-item" href="{{ route('accept') }}">
-                                Akceptuj raporty
-                            </a>
                             @endrole
                             <a class="dropdown-item" href="{{ route('raports') }}">
                                 Miesięczny raport
