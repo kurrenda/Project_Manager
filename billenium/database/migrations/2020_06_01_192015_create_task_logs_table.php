@@ -19,6 +19,7 @@ class CreateTaskLogsTable extends Migration
             $table->integer('task_id');
             $table->integer('hours_worked');
             $table->text("comment")->nullable();
+            $table->integer('accepted')->default("0");
             $table->timestamps();
         });
     }

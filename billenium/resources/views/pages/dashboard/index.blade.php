@@ -18,7 +18,7 @@
                                 <label for="exampleFormControlSelect1">Wybierz zadanie</label>
                                 <select class="form-control" name="task" id="exampleFormControlSelect1">
                                     @foreach($tasks as $t)
-                                    <option value="{{$t->id}}">{{$t->name}}</option>
+                                    <option value="{{$t->id}}">{{$t->project->name}}: {{$t->name}}</option>
                                     @endforeach
                                 </select>
                             </div>

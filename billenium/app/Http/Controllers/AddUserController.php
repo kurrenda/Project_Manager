@@ -45,7 +45,7 @@ class AddUserController extends Controller
 
             $user->save();
 
-            return redirect()->to('/');
+            return redirect()->route('editAuth');
 
         }else
         {

@@ -28,13 +28,38 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             @role('Team Leader')
+
+                            <a class="dropdown-item" href="{{ route('addProjectForm') }}">
+                                Dodaj projekt
+                            </a>
                             <a class="dropdown-item" href="{{ route('addTaskForm') }}">
                                 Dodaj zadanie
                             </a>
+                            <a class="dropdown-item" href="{{ route('accept') }}">
+                                Akceptuj raporty
+                            </a>
+                            @endrole
+
+                            @role('Admin')
                             <a class="dropdown-item" href="{{ route('addUserForm') }}">
                                 Dodaj pracownika
                             </a>
+                            <a class="dropdown-item" href="{{ route('editAuth') }}">
+                                Zarządzaj pracownikami
+                            </a>
+                            <a class="dropdown-item" href="{{ route('addProjectForm') }}">
+                                Dodaj projekt
+                            </a>
+                            <a class="dropdown-item" href="{{ route('addTaskForm') }}">
+                                Dodaj zadanie
+                            </a>
+                            <a class="dropdown-item" href="{{ route('accept') }}">
+                                Akceptuj raporty
+                            </a>
                             @endrole
+                            <a class="dropdown-item" href="{{ route('raports') }}">
+                                Miesięczny raport
+                            </a>
 
                             <a class="dropdown-item" href="{{ route('stats') }}">
                                 Zadania - statystyki

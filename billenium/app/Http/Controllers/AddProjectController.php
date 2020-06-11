@@ -4,30 +4,30 @@ namespace App\Http\Controllers;
 
 use App\TaskLogs;
 use App\Task;
+use App\User;
 use App\Projects;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class TaskLogsController extends Controller
+class AddProjectController extends Controller
 {
 
     public function index() {
 
-        return view('pages/dashboard/index', ["tasks" => Task::where('user_id',Auth::id())->where('status', "0")->with('project')->get()]);
+        return view('pages/dashboard/addProject', ["tasks" => Task::all(), "users" => User::all()]);
     }
 
-    public function registerTime(Request $request)
+    public function addProject(Request $request)
     {
         if(Auth::Check())
         {
             $userId = Auth::id();
 
             $validator = Validator::make($request->all(), [
-                'task' => 'required',
-                'status' => 'required',
-                'time' => 'required',
+                'name' => 'required',
+                'description' => 'required',
             ]);
 
             // if fails redirects back with errors
@@ -37,19 +37,13 @@ class TaskLogsController extends Controller
                     ->withInput();
             }
 
-            $task = new TaskLogs();
+            $task = new Projects();
 
-            $task->hours_worked = $request->time;
-            $task->user_id = $userId;
-            $task->task_id = $request->task;
-            $task->comment = $request->comment;
+            $task->name = $request->name;
+            $task->description = $request->description;
+            $task->status = 0;
 
             $task->save();
-
-            $globalTask = Task::find($request->task);
-            $globalTask->status = $request->status;
-            $globalTask->save();
-
 
             return redirect()->route('stats');
 

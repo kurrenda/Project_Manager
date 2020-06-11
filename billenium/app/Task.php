@@ -11,6 +11,11 @@ class Task extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function project()
+    {
+        return $this->belongsTo(Projects::class);
+    }
+
     public function taskLogs()
     {
         return $this->hasMany(TaskLogs::class, 'task_id');

@@ -1,3 +1,7 @@
 .bg-orange{
     background-color: #fcad03;
 }
+
+.table-dark, .table-dark > td, .table-dark > th {
+    background-color: #454d55;
+}

@@ -1,6 +1,6 @@
 @extends('layouts.index')
 
-@section('title', 'Dodaj zadanie')
+@section('title', 'Dodaj projekt')
 
 @section('content')
 
@@ -14,29 +14,13 @@
                 @endif
                 <div class="card">
                     <div class="card-header text-center">
-                        <h3>Dodaj zadanie</h3>
+                        <h3>Dodaj projekt</h3>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('addTaskPost')}}" method="post">
+                        <form action="{{route('addProjectPost')}}" method="post">
                             @csrf
                             <div class="form-group">
-                                <label for="exampleFormControlSelect21">Wybierz projekt</label>
-                                <select class="form-control" name="project" id="exampleFormControlSelect21">
-                                    @foreach($projects as $u)
-                                        <option value="{{$u->id}}">{{$u->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect21">Wybierz pracownika</label>
-                                <select class="form-control" name="user" id="exampleFormControlSelect21">
-                                    @foreach($users as $u)
-                                        <option value="{{$u->id}}">{{$u->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Nazwa zadania</label>
+                                <label for="exampleInputEmail1">Nazwa projektu</label>
                                 <input type="text" name="name" class="form-control" id="exampleInputEmail1">
                             </div>
                             <div class="form-group">
