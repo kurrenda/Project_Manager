@@ -18,7 +18,9 @@
                                 <label for="exampleFormControlSelect1">Wybierz zadanie</label>
                                 <select class="form-control" name="task" id="exampleFormControlSelect1">
                                     @foreach($tasks as $t)
+                                        @if($t->project->status == 0)
                                     <option value="{{$t->id}}">{{$t->project->name}}: {{$t->name}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>
