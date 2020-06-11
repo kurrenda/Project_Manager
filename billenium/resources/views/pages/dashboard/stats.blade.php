@@ -58,6 +58,7 @@
 
                                     </tr>
                                     @foreach($key->taskLogs as $t)
+                                        @if($t->accepted == 1)
                                     <tr class="table-dark table-borderless" >
                                         <td>
                                             {{$t->user->name}}
@@ -72,6 +73,7 @@
                                             {{$t->comment}}
                                         </td>
                                     </tr>
+                                        @endif
                                     @endforeach
                                 @endforeach
                                 </tbody>

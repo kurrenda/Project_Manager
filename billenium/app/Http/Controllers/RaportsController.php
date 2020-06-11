@@ -20,7 +20,7 @@ class RaportsController extends Controller
     public function index() {
 
 
-        $invoices = DB::table('task_logs')->where('user_id', Auth::id())
+        $invoices = DB::table('task_logs')->where('user_id', Auth::id())->where('accepted', 1)
             ->select(
                 DB::raw('user_id as user'),
                 DB::raw('YEAR(created_at) as year'),
@@ -30,7 +30,7 @@ class RaportsController extends Controller
             ->groupBy('year', 'month',"user")
             ->get()->groupBy('user');
 
-        $invoicesAll = DB::table('task_logs')->join('users', 'task_logs.user_id', '=', 'users.id')
+        $invoicesAll = DB::table('task_logs')->where('accepted', 1)->join('users', 'task_logs.user_id', '=', 'users.id')
             ->select(
                 DB::raw('users.name as user'),
                 DB::raw('YEAR(task_logs.created_at) as year'),

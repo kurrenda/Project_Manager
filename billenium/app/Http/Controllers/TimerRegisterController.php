@@ -34,15 +34,11 @@ class TimerRegisterController extends Controller
             ->selectRaw('sum(hours_worked) as sum, tasks.name as name, tasks.status as status, users.name as user')
             ->get();*/
 
-        $test = Projects::with('tasks')->with(['tasks.taskLogs' => function($q){
-            $q->where('accepted', '1');
-        }])->with("tasks.taskLogs.user","tasks.taskLogs.task")->with("tasks.user")->get();
+        $test = Projects::with('tasks')->with('tasks.taskLogs')->with("tasks.taskLogs.user","tasks.taskLogs.task")->with("tasks.user")->get();
 
         $user = Projects::whereHas('tasks', function ($query) {
             return $query->where('user_id', Auth::id());
-        })->with('tasks')->with(['tasks.taskLogs' => function($q){
-            $q->where('accepted', '1');
-        }])->with("tasks.taskLogs.user","tasks.taskLogs.task")->with("tasks.user")->get();
+        })->with('tasks')->with('tasks.taskLogs')->with("tasks.taskLogs.user","tasks.taskLogs.task")->with("tasks.user")->get();
 
         return view('pages/dashboard/stats', ["projects" => $test->reverse(), "projectsUser" => $user->reverse()]);
     }
